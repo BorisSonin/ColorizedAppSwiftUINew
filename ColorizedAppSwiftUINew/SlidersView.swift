@@ -10,7 +10,6 @@ import SwiftUI
 struct SlidersView: View {
     
     @Binding var value: Double
-    @State private var text = ""
     
     let sliderColor: Color
     
@@ -18,10 +17,13 @@ struct SlidersView: View {
         HStack {
             Text("\(lround(value))")
                 .foregroundColor(.white)
+            
             Slider(value: $value, in: 0...255, step: 1)
                 .accentColor(sliderColor)
+            
+            TextFieldView(value: $value)
         }
-        .frame(width: 300)
+        .frame(width: 350)
     }
 }
 
